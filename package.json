@@ -1,0 +1,24 @@
+{
+  "name": "alexander",
+  "version": "1.0.0",
+  "description": "Game with Logs",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EagleEYErus/lesson-2.git"
+  },
+  "author": "Alexander Saprykin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EagleEYErus/lesson-2/issues"
+  },
+  "homepage": "https://github.com/EagleEYErus/lesson-2#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "node-grok": "^2.0.3",
+    "word-table": "^1.0.0"
+  }
+}
