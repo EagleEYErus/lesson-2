@@ -75,7 +75,7 @@ var writeLog = isWin => {
 		' Всего сыграно игр: ' + games +
 		' Максимальный WinStreak: ' + maxWinStreak +
 		' Максимальный LooseStreak: ' + maxLooseStreak + 
-		' WinRate: ' + (wins/games)*100 + '%\n\r';
+		' WinRate: ' + Math.round((wins/games)*100) + '\n\r';
 
 	fs.appendFile(argv.path, log, err => {
 		if (err) console.log(err.message);
@@ -84,11 +84,11 @@ var writeLog = isWin => {
 
 rl.on('line', cmd => {
 	const result = game(cmd);
-	if (result) {
+	if (result === 1) {
 		games++;
 		winStreak++;
 		wins++;
-		maxLooseStreak = looseStreak;
+		if (maxLooseStreak < looseStreak) maxLooseStreak = looseStreak;
 		looseStreak = 0;
 		console.log('Вы победили!');
 		writeLog(1);
@@ -96,7 +96,7 @@ rl.on('line', cmd => {
 		games++;
 		looseStreak++;
 		looses++;
-		maxWinStreak = winStreak;
+		if (maxWinStreak < winStreak) maxWinStreak = winStreak;
 		winStreak = 0;
 		console.log('Вы проиграли!');
 		writeLog(0);
