@@ -60,7 +60,7 @@ const game = name => {
 
 var writeLog = isWin => {
 
-	log = '[' + new Date().toLocaleString() + '] ';
+	let log = '[' + new Date().toLocaleString() + '] ';
 
 	if (isWin) {
 		log += 'Победа';
