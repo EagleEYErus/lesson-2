@@ -3,7 +3,7 @@ const fs = require('fs');
 const readline = require('readline');
 
 const argv = argvParser(process.argv.slice(2));
-var maxWinStreak = 0,
+let maxWinStreak = 0,
 	maxLooseStreak = 0, 
  	wins = 0,
  	looses = 0,
@@ -86,7 +86,6 @@ rl.on('line', cmd => {
 	const result = game(cmd);
 	
 	if (result === 1) {
-		
 		games++;
 		winStreak++;
 		wins++;
@@ -96,7 +95,6 @@ rl.on('line', cmd => {
 		console.log('Вы победили!');
 		writeLog(1);
 	} else if (result === 0) {
-		
 		games++;
 		looseStreak++;
 		looses++;
@@ -105,5 +103,5 @@ rl.on('line', cmd => {
 		
 		console.log('Вы проиграли!');
 		writeLog(0);
-	} else if (result === -1 ) console.log('Неккоректный запрос');
+	} else if (result === -1) console.log('Неккоректный запрос');
 });
